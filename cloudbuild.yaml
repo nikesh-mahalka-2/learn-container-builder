@@ -1,0 +1,7 @@
+steps:
+- name: gcr.io/cloud-builders/git
+  args: ['clone', 'https://github.com/GoogleCloudPlatform/cloud-builders']
+  env: ['PROJECT_ROOT=hello']
+  dir: 'examples/git'
+- name: "Ubuntu"
+  args: ['ls', '-lah']
