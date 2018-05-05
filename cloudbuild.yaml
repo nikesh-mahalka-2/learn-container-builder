@@ -1,7 +1,6 @@
 steps:
-- name: gcr.io/cloud-builders/git
-  args: ['clone', 'https://github.com/GoogleCloudPlatform/cloud-builders']
-  env: ['PROJECT_ROOT=hello']
-  dir: 'examples/git'
-- name: "Ubuntu"
-  args: ['ls', '-lah']
+# Pull a public image from Dockerhub.
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['pull', 'ubuntu']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['pull', 'ubuntu']
