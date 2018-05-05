@@ -1,4 +1,4 @@
 steps:
 # Retag the image into a user's repository.
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'ubuntu', '[MY-USER]/myubuntu']
+  args: ['tag', 'ubuntu', 'test/myubuntu']
