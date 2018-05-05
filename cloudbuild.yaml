@@ -1,6 +1,4 @@
 steps:
-# Pull a public image from Dockerhub.
+# Retag the image into a user's repository.
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'ubuntu']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'ubuntu']
+  args: ['tag', 'ubuntu', '[MY-USER]/myubuntu']
