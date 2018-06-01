@@ -10,8 +10,8 @@ steps:
   args: ['-c', 'docker login --username=nike1niec --password=$$DOCKER_PASSWORD']
   secretEnv: ['DOCKER_PASSWORD']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['run', '-d', 'store/oracle/database-enterprise:12.2.0.1-slim']
+  args: ['run', '-d', '--name', 'dbserver', '--net', 'standford', 'store/oracle/database-enterprise:12.2.0.1-slim']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['ps', '-a']
 - name: 'alpine'
-  args: ['ping', 'step_1']
+  args: ['ping', 'dbserver']
