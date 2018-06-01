@@ -5,13 +5,13 @@ secrets:
     DOCKER_PASSWORD: CiQAxgges7DOxqkgtgOuOMALZgIaa9f1JiSno67g6Lol98O5nocSNACedAH6lqExDVBta0bn8WLD+XqAwhLapJxt4mMxzm6waV8t3js8eSV2PswjVb8DDNWWGxE=
 
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  entrypoint: 'bash'
-  args: ['-c', 'docker login --username=nike1niec --password=$$DOCKER_PASSWORD']
-  secretEnv: ['DOCKER_PASSWORD']
-- name: 'gcr.io/cloud-builders/docker'
-  entrypoint: 'bash'
-  args: ['-c', 'docker run -d store/oracle/database-enterprise:12.2.0.1-slim']
+#- name: 'gcr.io/cloud-builders/docker'
+#  entrypoint: 'bash'
+#  args: ['-c', 'docker login --username=nike1niec --password=$$DOCKER_PASSWORD']
+#  secretEnv: ['DOCKER_PASSWORD']
+#- name: 'gcr.io/cloud-builders/docker'
+#  entrypoint: 'bash'
+#  args: ['-c', 'docker run -d store/oracle/database-enterprise:12.2.0.1-slim']
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker ps -a']
