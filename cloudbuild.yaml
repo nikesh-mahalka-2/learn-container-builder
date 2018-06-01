@@ -11,4 +11,8 @@ steps:
   secretEnv: ['DOCKER_PASSWORD']
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', 'docker run store/oracle/database-enterprise:12.2.0.1-slim']
+  args: ['-c', 'docker run -d store/oracle/database-enterprise:12.2.0.1-slim']
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', 'docker ps -a']
+ 
