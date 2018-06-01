@@ -7,7 +7,7 @@ secrets:
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', "set -xe; docker login -u nike1niec -p $DOCKER_PASSWORD"]
+  args: ['-c', "set -xe; docker login -u nike1niec -p ${DOCKER_PASSWORD}"]
   secretEnv: ['DOCKER_PASSWORD']
   
 
