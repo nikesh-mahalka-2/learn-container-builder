@@ -2,4 +2,5 @@
 steps:
  
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['compute', 'project-info', 'describe', '--format', 'json']
+  entrypoint: 'bash'
+  args: ['-c', "gcloud compute project-info describe --format json | python -c 'import sys, json; print json.load(sys.stdin)['name']'"
