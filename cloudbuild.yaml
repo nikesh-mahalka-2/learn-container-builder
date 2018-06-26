@@ -1,7 +1,9 @@
 # Build Steps:
 steps:
 
-
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', "docker inspect metadata"]
   
 - name: 'gcr.io/cloud-builders/docker'
   args:
