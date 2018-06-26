@@ -4,9 +4,17 @@ steps:
 #
 # Steps for building and testing vertx-template with Oracle DB
 #
+# Creating a separate network
+# It is required for communication between Oracle DB server and APP server
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', 'docker network create test-metadata']
+  
 - name: 'gcr.io/cloud-builders/docker'
   args:
   - 'run'
+  - '--net'
+  - 'test-metadata'
   - '--link=metadata:metadata.google.internal'
   - '--entrypoint=ash'
   - 'alpine'
