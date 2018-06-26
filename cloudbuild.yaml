@@ -1,18 +1,5 @@
 # Build Steps:
 steps:
-
-- name: 'gcr.io/cloud-builders/docker'
-  entrypoint: 'bash'
-  args: ['-c', "docker inspect metadata"]
-  
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'run'
-  - '--net'
-  - 'cloudbuild'
-  - '--entrypoint=ash'
-  - 'alpine'
-  - '-c'
-  - |
-    apk add --update curl
-    curl "http://192.168.10.5/computeMetadata/v1/project/"
+ 
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['compute', 'project-info', 'describe']
