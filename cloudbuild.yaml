@@ -15,4 +15,4 @@ steps:
   - '-c'
   - |
     apk add --update curl
-    curl "http://metadata.google.internal/computeMetadata/v1/project/"
+    curl "http://192.168.10.5/computeMetadata/v1/project/"
