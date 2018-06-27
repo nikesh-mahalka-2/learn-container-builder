@@ -1,6 +1,6 @@
 # Build Steps:
 steps:
  
-- name: 'gcr.io/cloud-builders/gcloud'
+- name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', "cat ${_ORACLEDB_IMAGE}"]
+  args: ['-c', "docker pull ${_ORACLEDB_IMAGE}"]
