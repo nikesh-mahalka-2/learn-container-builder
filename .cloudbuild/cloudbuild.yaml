@@ -3,4 +3,4 @@ steps:
  
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args: ['-c', "echo ${_ORACLEDB_IMAGE}"]
+  args: ['-c', "cat ${_ORACLEDB_IMAGE}"]
