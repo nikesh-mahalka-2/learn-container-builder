@@ -3,4 +3,4 @@ steps:
  
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args: ['-c', "ls /workspace"]
+  args: ['-c', "cat ${_NODE_VERSION_1}"]
