@@ -1,5 +1,6 @@
 #!/bin/bash
 set -xe
+echo ${_DB_HLTH_CHK_MAX_RETRY}
 num_retry=0
 until [[ "$num_retry" -gt "${_DB_HLTH_CHK_MAX_RETRY}" ]]
 do
