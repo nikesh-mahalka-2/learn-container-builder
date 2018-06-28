@@ -3,4 +3,4 @@ steps:
  
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', "docker run -v /workspace:/workspace --entrypoint 'bash' ubuntu -c 'chmod +x /workspace/check_health.sh; ./check_health.sh'"]
+  args: ['-c', "docker run -v /workspace:/workspace --entrypoint 'bash' ubuntu -c 'chmod +x /workspace/check_health.sh; /workspace/check_health.sh'"]
