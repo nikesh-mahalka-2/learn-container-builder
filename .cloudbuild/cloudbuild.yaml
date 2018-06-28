@@ -1,6 +1,6 @@
 # Build Steps:
 steps:
  
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/mvn'
   entrypoint: 'bash'
-  args: ['-c', "declare"]
+  args: ['-c', "gsutil --help"]
