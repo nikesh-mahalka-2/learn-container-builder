@@ -3,4 +3,4 @@ steps:
  
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', "docker pull gcr.io/$PROJECT_ID/${_ORACLEDB_IMAGE}"]
+  args: ['-c', "docker run -v /workspace:/workspace --entrypoint 'bash' ubuntu -c 'chmod +x /workspace/check_health.sh; ./check_health.sh'"]
