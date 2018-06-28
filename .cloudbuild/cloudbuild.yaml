@@ -3,4 +3,4 @@ steps:
  
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', "chmod +x /workspace/.cloudbuild/check_health.sh; /workspace/.cloudbuild/check_health.sh'"]
+  args: ['-c', "chmod +x /workspace/.cloudbuild/check_health.sh; /workspace/.cloudbuild/check_health.sh"]
