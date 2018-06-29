@@ -1,6 +1,10 @@
 # Build Steps:
 steps:
- 
-- name: 'gcr.io/cloud-builders/mvn'
+
+
+
+# Testing using APP test server
+- name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
-  args: ['-c', "chmod +x .cloudbuild/check_health.sh; .cloudbuild/check_health.sh"]
+  args: ['-c', "echo $$EXIT_CODE; docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; .cloudbuild/check_health.sh'; echo $$EXIT_CODE"]
+  env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn', 'EXIT_CODE=0']
