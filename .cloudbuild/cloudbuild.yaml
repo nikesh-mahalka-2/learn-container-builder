@@ -3,4 +3,4 @@ steps:
  
 - name: 'gcr.io/cloud-builders/mvn'
   entrypoint: 'bash'
-  args: ['-c', "gsutil --help"]
+  args: ['-c', "chmod +x .cloudbuild/check_health.sh; .cloudbuild/check_health.sh"]
