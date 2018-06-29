@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'export EXIT_CODE=1' >> ~/.bashrc
+echo 'export EXIT_CODE=1' >> /workspace/.bashrc
 
 #if [ "$?" -ne 0 ]; then
 #    echo "command Unsuccessful!"
