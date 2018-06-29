@@ -1,5 +1,6 @@
 #!/bin/bash
 apt-get update
+apt-get install curl -y
 curl https://sdk.cloud.google.com | bash
 
 gcloud info
