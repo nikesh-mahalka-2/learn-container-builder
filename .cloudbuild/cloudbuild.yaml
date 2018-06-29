@@ -7,5 +7,5 @@ steps:
 - name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
   args: ['-c', "echo $$EXIT_CODE; docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
-         chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh'; echo $EXIT_CODE"]
+         chmod +x .cloudbuild/check_health.sh; .cloudbuild/check_health.sh; echo $EXIT_CODE'"]
   env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
