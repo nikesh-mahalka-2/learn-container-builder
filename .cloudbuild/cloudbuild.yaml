@@ -6,6 +6,7 @@ steps:
 # Testing using APP test server
 - name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
-  args: ['-c', "echo $$EXIT_CODE; docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
-         chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh;'; source  /workspace/.bashrc; printenv"]
+  args: ['-c', "docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
+         chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh;'; docker run -v \
+         /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.bashrc; echo $EXIT_CODE'"]
   env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
