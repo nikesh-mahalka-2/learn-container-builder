@@ -1,4 +1,5 @@
 #!/bin/bash
+ls
 export EXIT_CODE=1
 
 #if [ "$?" -ne 0 ]; then
