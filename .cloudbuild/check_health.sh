@@ -1,11 +1,7 @@
 #!/bin/bash
-apt-get update
-apt-get install curl -y
-curl https://sdk.cloud.google.com | bash
+EXIT_CODE=1
 
-gcloud info
-
-if [ "$?" -ne 0 ]; then
-    echo "command Unsuccessful!"
-    exit 1
-fi
+#if [ "$?" -ne 0 ]; then
+#    echo "command Unsuccessful!"
+#    exit 1
+#fi
