@@ -1,5 +1,5 @@
 #!/bin/bash
-EXIT_CODE=1
+export EXIT_CODE=1
 
 #if [ "$?" -ne 0 ]; then
 #    echo "command Unsuccessful!"
