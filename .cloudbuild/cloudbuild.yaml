@@ -8,5 +8,6 @@ steps:
   entrypoint: 'bash'
   args: ['-c', "docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
          chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh;'; docker run -v \
-         /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.bashrc; echo $EXIT_CODE'"]
+         /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.bashrc; \
+         chmod +x .cloudbuild/check_health2.sh; .cloudbuild/check_health2.sh;'"]
   env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
