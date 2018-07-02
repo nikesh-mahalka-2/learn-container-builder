@@ -3,7 +3,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gsutil'
   entrypoint: 'bash'
-  args: ['-c', "ls -lah /builder/google-cloud-sdk"]
+  args: ['-c', "ls -lah /builder/google-cloud-sdk/data"]
 # Testing using APP test server
 #- name: 'gcr.io/cloud-builders/docker' 
  # entrypoint: 'bash'
