@@ -3,7 +3,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gsutil'
   entrypoint: 'bash'
-  args: ['-c', "gsutil cp -r .cloudbuild gs://delete-oracle-jdbc-jar"]
+  args: ['-c', "gsutil cp -r .cloudbuild gs://delete-oracle-jdbc-jar/test"]
 
 # Testing using APP test server
 #- name: 'gcr.io/cloud-builders/docker' 
