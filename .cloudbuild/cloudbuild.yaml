@@ -3,14 +3,14 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gsutil'
   entrypoint: 'bash'
-  args: ['-c', "ls /builder/home/.config/gcloud/configurations/config_default;  ls /builder/home/.config/gcloud; cat /builder/google-cloud-sdk/properties"]
+  args: ['-c', "apt-get update; apt-get install tree -y; tree /"]
 # Testing using APP test server
-- name: 'gcr.io/cloud-builders/docker' 
-  entrypoint: 'bash'
+#- name: 'gcr.io/cloud-builders/docker' 
+ # entrypoint: 'bash'
   #args: ['-c', "ls -lah; docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
    #      chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh;'; docker run -v \
    #      /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.antexitcoderc; \
    #      chmod +x .cloudbuild/check_health2.sh; .cloudbuild/check_health2.sh;'"]
-  args: ['-c', "docker run -v /workspace:/workspace --volume /var/run/docker.sock:/var/run/docker.sock -v /builder/home:/builder/home --workdir /workspace --env HOME=/builder/home --privileged --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; \
-         chmod +x .cloudbuild/check_health2.sh;'"]
-  env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
+ # args: ['-c', "docker run -v /workspace:/workspace --volume /var/run/docker.sock:/var/run/docker.sock -v /builder/home:/builder/home --workdir /workspace --env HOME=/builder/home --privileged --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; \
+     #    chmod +x .cloudbuild/check_health2.sh;'"]
+ # env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
