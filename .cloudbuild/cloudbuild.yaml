@@ -1,12 +1,14 @@
 # Build Steps:
 steps:
 
-- name: 'gcr.io/cloud-builders/gsutil'
-  entrypoint: 'bash'
-  args: ['-c', "ls -lah /builder/google-cloud-sdk/data"]
+#- name: 'gcr.io/cloud-builders/gsutil'
+#  entrypoint: 'bash'
+ # args: ['-c', "ls -lah /builder/google-cloud-sdk/data/cli"]
+
 # Testing using APP test server
-#- name: 'gcr.io/cloud-builders/docker' 
- # entrypoint: 'bash'
+- name: 'gcr.io/cloud-builders/docker' 
+  entrypoint: 'bash'
+  args: ['-c', "echo $BUILD_ID; chmod +x .cloudbuild/check_health2.sh; .cloudbuild/check_health2.sh"]
   #args: ['-c', "ls -lah; docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
    #      chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh;'; docker run -v \
    #      /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.antexitcoderc; \
