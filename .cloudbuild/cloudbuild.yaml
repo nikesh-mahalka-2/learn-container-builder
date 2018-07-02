@@ -3,7 +3,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gsutil'
   entrypoint: 'bash'
-  args: ['-c', "apt-get update; apt-get install tree -y; tree /"]
+  args: ['-c', "apt-get update; apt-get install tree -y; cat /builder/google-cloud-sdk/data/gcloud.json"]
 # Testing using APP test server
 #- name: 'gcr.io/cloud-builders/docker' 
  # entrypoint: 'bash'
