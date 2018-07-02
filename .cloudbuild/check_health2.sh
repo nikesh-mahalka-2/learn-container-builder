@@ -1,3 +1,3 @@
 #echo $EXIT_CODE
 #!/bin/bash
-echo $BUILD_ID
+echo $ANT_BUILD_ID
