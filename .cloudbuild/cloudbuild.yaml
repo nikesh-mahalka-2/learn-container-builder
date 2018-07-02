@@ -11,5 +11,5 @@ steps:
    #      /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.antexitcoderc; \
    #      chmod +x .cloudbuild/check_health2.sh; .cloudbuild/check_health2.sh;'"]
   args: ['-c', "docker run -v /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; \
-         chmod +x .cloudbuild/check_health2.sh; gsutil cp .cloudbuild/check_health2.sh gs://delete-oracle-jdbc-jar'"]
+         chmod +x .cloudbuild/check_health2.sh; gcloud info'"]
   env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
