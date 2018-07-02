@@ -3,7 +3,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gsutil'
   entrypoint: 'bash'
-  args: ['-c', "cat /builder/home/.config/gcloud/configurations/config_default;  cat /builder/home/.config/gcloud; cat /builder/google-cloud-sdk/properties"]
+  args: ['-c', "ls /builder/home/.config/gcloud/configurations/config_default;  ls /builder/home/.config/gcloud; cat /builder/google-cloud-sdk/properties"]
 # Testing using APP test server
 - name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
