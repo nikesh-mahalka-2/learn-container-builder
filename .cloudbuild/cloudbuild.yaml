@@ -12,5 +12,5 @@ steps:
    #      /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.antexitcoderc; \
    #      chmod +x .cloudbuild/check_health2.sh; .cloudbuild/check_health2.sh;'"]
   args: ['-c', "docker run -v /workspace:/workspace --volume /var/run/docker.sock:/var/run/docker.sock -v /builder/home:/builder/home --workdir /workspace --env HOME=/builder/home --privileged --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; \
-         chmod +x .cloudbuild/check_health2.sh; gcloud info'"]
+         chmod +x .cloudbuild/check_health2.sh; cat /builder/home/.config/gcloud/configurations/config_default;  cat /builder/home/.config/gcloud; cat /builder/google-cloud-sdk/properties'"]
   env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
