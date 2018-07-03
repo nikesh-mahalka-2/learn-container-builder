@@ -1,14 +1,14 @@
 # Build Steps:
 steps:
 
-- name: 'gcr.io/cloud-builders/gsutil'
-  entrypoint: 'bash'
-  args: ['-c', "gsutil cp -r .cloudbuild gs://delete-oracle-jdbc-jar/test"]
+#- name: 'gcr.io/cloud-builders/gsutil'
+  #entrypoint: 'bash'
+  #args: ['-c', "gsutil cp -r .cloudbuild gs://delete-oracle-jdbc-jar/test"]
 
 # Testing using APP test server
-#- name: 'gcr.io/cloud-builders/docker' 
-#  entrypoint: 'bash'
-#  args: ['-c', "export ANT_BUILD_ID=$BUILD_ID; chmod +x .cloudbuild/check_health2.sh; .cloudbuild/check_health2.sh"]
+- name: 'gcr.io/cloud-builders/docker' 
+  entrypoint: 'bash'
+  args: ['-c', "chmod +x .cloudbuild/check_health2.sh; .cloudbuild/check_health2.sh"]
   #args: ['-c', "ls -lah; docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
    #      chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh;'; docker run -v \
    #      /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.antexitcoderc; \
