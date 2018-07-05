@@ -32,7 +32,13 @@ steps:
 #  args: ['-c', 'docker run --entrypoint 'bash' $$APP_TEST_IMAGE -c 'ls'']
 #  env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
 
+# INVALID_ARGUMENT
+#- name: 'gcr.io/cloud-builders/docker'
+#  entrypoint: 'bash'
+#  args: ['-c', 'docker run --entrypoint 'bash' $$APP_TEST_IMAGE -c "ls"']
+#  env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
+
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', 'docker run --entrypoint 'bash' $$APP_TEST_IMAGE -c "ls"']
+  args: ['-c', "docker run --entrypoint 'bash' $$APP_TEST_IMAGE -c "ls""]
   env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
