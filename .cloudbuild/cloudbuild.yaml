@@ -52,7 +52,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', "docker run --entrypoint -v /workspace:/workspace 'bash' $$APP_TEST_IMAGE -c 'echo export ANT_BUILD_ID=$BUILD_ID > /workspace/.cloudbuild/.antbuildidrc; cat /workspace/.cloudbuild/.antbuildidrc'"]
+  args: ['-c', "docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'echo export ANT_BUILD_ID=$BUILD_ID > /workspace/.cloudbuild/.antbuildidrc; cat /workspace/.cloudbuild/.antbuildidrc'"]
   env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
 
 
