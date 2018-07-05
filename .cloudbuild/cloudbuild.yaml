@@ -10,8 +10,12 @@ steps:
 #  entrypoint: 'bash'
 #  args: ['-c', "export TEST=1234; echo $$TEST"]
   
-# fail 
+# invalid build: key in the template "TEST" is not a valid built-in substitution
+#- name: 'gcr.io/cloud-builders/docker' 
+#  entrypoint: 'bash'
+#  args: ['-c', "export TEST=1234; echo $TEST"]
+
 - name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
-  args: ['-c', "export TEST=1234; echo $TEST"]
-
+  args: ['-c', "echo $TEST"]
+  env: ['TEST=1234']
