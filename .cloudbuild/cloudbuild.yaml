@@ -1,11 +1,17 @@
 # Build Steps:
 steps:
-# Testing using APP test server
+# pass due to $$
+#- name: 'gcr.io/cloud-builders/docker' 
+#  entrypoint: 'bash'
+#  args: ['-c', "TEST=1234; echo $$TEST"]
+
+# pass due to $$
+#- name: 'gcr.io/cloud-builders/docker' 
+#  entrypoint: 'bash'
+#  args: ['-c', "export TEST=1234; echo $$TEST"]
+  
+# fail 
 - name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
-  args: ['-c', "TEST=1234; echo $$TEST"]
- 
-- name: 'gcr.io/cloud-builders/docker' 
-  entrypoint: 'bash'
-  args: ['-c', "export TEST=1234; echo $$TEST"]
+  args: ['-c', "export TEST=1234; echo $TEST"]
 
