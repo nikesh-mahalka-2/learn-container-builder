@@ -8,7 +8,7 @@ steps:
 # Testing using APP test server
 - name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
-  args: ['-c', "export TEST=1234; echo $TEST"]
+  args: ['-c', "export TEST=1234; echo $$TEST"]
   #args: ['-c', "ls -lah; docker run -v /workspace:/workspace --entrypoint 'bash' $$APP_TEST_IMAGE -c 'cd /workspace; \
    #      chmod +x .cloudbuild/check_health.sh; source .cloudbuild/check_health.sh;'; docker run -v \
    #      /workspace:/workspace --entrypoint 'bash' gcr.io/cloud-builders/gsutil -c 'cd /workspace; source  /workspace/.antexitcoderc; \
