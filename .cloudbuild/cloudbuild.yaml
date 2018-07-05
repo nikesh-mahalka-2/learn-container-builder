@@ -21,13 +21,18 @@ steps:
 #  args: ['-c', "echo $TEST"]
 #  env: ['TEST=1234']
 
-#
-- name: 'gcr.io/cloud-builders/docker' 
-  entrypoint: 'bash'
-  args: ['-c', 'TEST=1234; echo $$TEST']
+# -c 'TEST=1234; echo $$TEST' is treated as -c "TEST=1234; echo $TEST"  ; see double quotes
+#- name: 'gcr.io/cloud-builders/docker' 
+#  entrypoint: 'bash'
+#  args: ['-c', 'TEST=1234; echo $$TEST']
 
 # INVALID_ARGUMENT
 #- name: 'gcr.io/cloud-builders/docker'
 #  entrypoint: 'bash'
 #  args: ['-c', 'docker run --entrypoint 'bash' $$APP_TEST_IMAGE -c 'ls'']
 #  env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
+
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', 'docker run --entrypoint 'bash' $$APP_TEST_IMAGE -c "ls"']
+  env: ['APP_TEST_IMAGE=gcr.io/cloud-builders/mvn']
