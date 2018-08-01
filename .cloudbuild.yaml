@@ -1,0 +1,5 @@
+# Build Steps:
+steps:
+- name: 'gcr.io/cloud-builders/docker' 
+  entrypoint: 'bash'
+  args: ['-c', "TEST=1234; echo $$TEST"]
